@@ -1,34 +1,28 @@
 #include<iostream>
 using namespace std;
 
-
 int main()
 {
-    int size;
-    int i , j;
-    int flag = 0;
+	int n;
 
-    cin >> size;
+	cin >> n;
 
-    int arr[999] = {0};
+	int arr[n];
 
-    for(int i = 0; i < size; ++i)
-        cin >> arr[i];
+	for(int i = 0; i < n; ++i)
+	{
+		cin >> arr[i];
+	}
 
-    for(i = 0, j = size-1; i <= size/2; ++i, --j)
-    {
-        if(arr[i] != arr[j])
-        {
-            flag = 1;
-            break;
-        }
-    }
+	for(int j = 0, i = n-1 ; j < n/2; ++j, --i)
+	{
+		if(arr[i] != arr[j])
+		{
+			cout << "NO" << endl;
+			return 0;
+		}
+	}
 
-    if(flag == 1)
-        cout << "NO" << endl;
-    else
-        cout << "YES" << endl;
-
-    
-    return 0;
+	cout << "YES" << endl;
+	return 0;
 }

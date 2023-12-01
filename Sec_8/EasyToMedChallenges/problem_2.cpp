@@ -3,49 +3,45 @@ using namespace std;
 
 int main()
 {
-    int size;
-    int max = INT16_MIN;
-    int indx_max;
-    int min = INT16_MAX;
-    int indx_min;
+	int n;
+	int max = INT32_MIN;
+	int min = INT32_MAX;
 
-    cin >> size;
+	cin >> n;
 
-    int arr[200] = {0};
+	int arr[n];
 
-    for(int i = 0; i < size; ++i)
-    {
-        cin >> arr[i];
+	for(int i = 0; i < n; ++i)
+	{
+		cin >> arr[i];
 
-        if(max < arr[i])
-        {
-            max = arr[i];
-        }
+		if(arr[i] > max)
+		{
+			max = arr[i];
+		}
+		else
+		{
+			if(arr[i] < min)
+			{
+				min = arr[i];
+			}
+		}
+		
+	}
 
-        if(min > arr[i])
-        {
-            min = arr[i];
-        }
-    }
+	for(int i = 0; i < n; ++i)
+	{
+		if(arr[i] == min)
+		{
+			arr[i] = max;
+		}
+		else if(arr[i] == max)
+		{
+			arr[i] = min;
+		}
 
-   
-    for(int i = 0; i < size; ++i)
-    {
-        if(max == arr[i])
-        {
-            arr[i] = min;
-        }
-        else if(min == arr[i])
-        {
-            arr[i] = max;
-        }
+		cout << arr[i] << " ";
+	}
 
-
-    }
-
-    for(int i = 0; i < size; ++i)
-        cout << arr[i] << " ";
-
-
-    return 0;
+	return 0;
 }

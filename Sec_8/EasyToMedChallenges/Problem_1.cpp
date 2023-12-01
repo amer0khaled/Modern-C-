@@ -1,37 +1,27 @@
 #include<iostream>
 using namespace std;
 
-
 int main()
 {
-    int size;
-    int Checker_var = INT32_MIN;
-    int verification_var = 0;
-    cin >> size;
+	int n;
+	cin >> n;
 
-    int arr[200];
+	int arr[n];
 
-    for(int i = 0; i < size; ++i)
-    {
-        cin >> arr[i];
-        if(Checker_var <= arr[i])
-        {
-            Checker_var = arr[i];
-            ++verification_var;
-        }
-        else
-        {
-            break;
-        }
-    }
+	cin >> arr[0];
 
-    if(verification_var == size)
-        cout << "YES" << endl;
-    else
-        cout << "NO" <<endl;
+	for(int i = 1; i < n; ++i)
+	{
+		cin >> arr[i];	
+		
+		if(arr[i] < arr[i-1])
+		{
+			cout << "NO" << endl;
+			return 0;
+		}		
+	}
 
-    
+	cout << "YES" << endl;
 
-
-    return 0;
+	return 0;
 }
