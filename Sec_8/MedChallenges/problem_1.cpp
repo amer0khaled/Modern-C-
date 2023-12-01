@@ -1,66 +1,46 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-int mini[3];
+//minimum three values
 
-void BubbleSort(int * arr, int n)
+void Bubble_Sort(int * arr, int size)
 {
-    for(int i = 0; i < n -1; ++i)
-    {
-        for(int j = 0; j < n-1-i; ++j)
-        {
-            if(arr[j] > arr[j+1])
-            {
-                int temp = arr[j];
-                arr[j]   = arr[j+1];
-                arr[j+1]   = temp;
-            }
-        }
-    }
+	for(int i = 0; i < size-1; ++i)
+	{
+		for(int j = 0; j < size-1-i; ++j)
+		{
+			if(arr[j] > arr[j+1])
+			{
+				int temp = arr[j];
+				arr[j]   = arr[j+1];
+				arr[j+1] = temp;
+			}
+		}
+	}
 }
-
 
 
 int main()
 {
-    int size;
-    int value;
-    int  max_pos = 0;
-    int j = 0;
-  
-    //assumption : size >= 3
-    cin >> size;
+	int size;
 
-    for(int i = 0; i < size; ++i)
-    {
-        cin >> value;
+	cin >> size;
 
-        //in case of size = 3
-        if(i < 3)
-        {
-            mini[i] = value;
-        }
-        else
-        {
-            //get max value
-            for(int i = 0; i < 3; ++i)   
-            {
-                if(mini[max_pos] < mini[i])
-                    max_pos = i;
-            }
-            if(value < mini[max_pos])
-                mini[max_pos] = value;
+	int arr[size];
 
+	for(int i = 0; i < size; ++i)
+	{
+		cin >> arr[i];
+	}
 
-        }
+	Bubble_Sort(arr, size);
 
-    }
+	cout << "minimum three values are ";
 
-    BubbleSort(mini, 3);
+	for(int i = 0; i < 3; ++i)
+	{
+		cout << arr[i] << " ";
+	}
 
-    for(int i = 0; i < 3; ++i)
-        cout << mini[i] << " ";
-
-
-    return 0; 
+	return 0;
 }
