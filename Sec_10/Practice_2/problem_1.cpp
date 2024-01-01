@@ -1,54 +1,57 @@
 #include <iostream>
+#include <iomanip>
 
-#define Right       arr[row][col+1]
-#define Down        arr[row+1][col]
-#define Diagonal    arr[row+1][col+1]
-
-//Greedy Robot
+using namespace std;
 
 int main()
 {
-    int row = 0, col = 0, sum = 0;
-    std:: cin >> row >> col;
+   int row, col, sum = 0;
+   int i = 0, j = 0;
 
-    int arr[row][col];
+   cin >> row >> col;
 
-    for(int i = 0; i < row; ++i)
-    {
-        for(int j = 0; j < col; ++j)
-            std:: cin >> arr[i][j];
-    }
+   int arr[row][col];
+   
+   for(i = 0; i < row; ++i)
+   {
+    for(j = 0; j < col; ++j)
+        cin >> arr[i][j];
+   }
 
-    int i = 0, j = 0;
+     i = 0, j = 0;
 
-    while((i < row) && (j < col))
-    {
-        sum += arr[i][j];
+   while(i < row && j < col)
+   {
+     int next_i = -1, next_j = -1, next_value;
 
-        int best_i = -1, best_j = -1;
-        int New_Pos;
+     sum += arr[i][j];
 
-        //Right is max
-        if(j+1 < col)
-             New_Pos = arr[i][j+1], best_i = i, best_j = j+1;
-       
-        //Down is max
-        if(i+1 < row)
-            if(best_i == -1 || New_Pos < arr[i+1][j])
-                New_Pos = arr[i+1][j], best_i = i+1, best_j = j;
-       
-        //Diagonal element is max
-        if( (i+1 < row) && (j+1 < col) )
-            if(New_Pos < arr[i+1][j+1])
-                New_Pos = arr[i+1][j+1], best_i = i+1, best_j = j+1;
+     //check the right movement
+     if(j+1 < col)
+          next_i = i, next_j = j+1, next_value = arr[i][j+1];
 
-        if(best_i == -1)
-            break;
-        
-        i = best_i, j = best_j;
-  
-    }
+     //check the down movement
+     if(i+1 < row)
+     {
+          /*check on (next_i == -1) to decide whether the previous condition was valid or not if not ,then initialize the next_value*/
+          if((next_i == -1) || (arr[i+1][j] > next_value))
+               next_i = i+1, next_j = j, next_value = arr[i+1][j];
+     }
 
-    std:: cout << sum << "\n";
+     //check the diagonally movement
+     if(i+1 < row && j+1 < col)
+     {
+          if((next_i == -1) || (arr[i+1][j+1] > next_value))
+               next_i = i+1, next_j = j+1, next_value = arr[i+1][j+1];
+     }
 
+     if(next_i == -1)
+          break;
+
+     i = next_i, j = next_j;
+   }
+
+   cout << sum << "\n";
+
+    return 0;
 }
