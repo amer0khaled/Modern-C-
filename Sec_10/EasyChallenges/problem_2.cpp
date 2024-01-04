@@ -17,10 +17,10 @@ int main()
 			cin >> arr[i][j];
 
 			if (i <= j)
-				lower_triangle += arr[i][j];
+				upper_triangle += arr[i][j];
 
 			if (i >= j)
-				upper_triangle += arr[i][j];
+				lower_triangle += arr[i][j];
 		}
 	}
 
