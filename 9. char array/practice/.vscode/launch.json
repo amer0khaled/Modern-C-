@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/amer khaled/My Repos/C++ Programming Course/char_array",
-      "program": "d:/amer khaled/My Repos/C++ Programming Course/char_array/build/Debug/outDebug",
+      "cwd": "d:/amer khaled/My Repos/Modern-CPP/9. char array/practice",
+      "program": "d:/amer khaled/My Repos/Modern-CPP/9. char array/practice/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
