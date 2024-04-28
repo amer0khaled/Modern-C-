@@ -3,31 +3,37 @@ using namespace std;
 
 //Compressing
 
-int main()
-{
-    int i = 0;
-    int counter = 1;
-    string str;
+string compressing(string &s) {
 
-    cin >> str;
+	string Nstr;	
+	int cnt = 0;
 
-    while(str[i] != 0)
-    {
-        if(str[i] == str[i+1])
-        {
-            ++counter;
-        }
-        else
-        {
-            if(str[i+1] != '\0')
-                cout << (char)str[i] << counter << "_";
-            else
-                cout << (char)str[i] << counter;
-             
-             counter = 1;
-        }
-        ++i;
-    }
+	int i = 0;
+	while (s[i] != '\0') {
+		++cnt;
+		if (s[i] != s[i + 1]) {
+			Nstr += s[i];
+			Nstr += (char) cnt + '0';
 
-    return 0;
+			if (i < s.size() - 1)
+				Nstr += "_";
+
+			cnt = 0;
+		}
+		i++;
+	}
+
+	return Nstr;
+}
+
+
+int main() {
+
+	string s1;
+
+	cin >> s1;
+
+	cout << compressing(s1);
+
+	return 0;
 }
