@@ -2,24 +2,27 @@
 using namespace std;
 
 //Grouping
+string grouping(string &s) {
+	string Nstr;
+	int i = 0;
+	for (; i < s.size() - 1; ++i) {
+		Nstr += s[i];
 
-int main()
-{
-    int i = 0, j = 1;
-    string str;
+		if (s[i] != s[i + 1])
+			Nstr += " ";
+	}
+	Nstr += s[i];
 
-    cin >> str;
+	return Nstr;
+}
 
-    while(str[i] != '\0')
-    {
-        cout << (char)str[i];
+int main() {
 
-        if(str[i] != str[j])
-            cout << " ";
-        ++i;
-        ++j;
+	string s1;
 
-    }
+	cin >> s1;
 
-    return 0;
+	cout << grouping(s1);
+
+	return 0;
 }

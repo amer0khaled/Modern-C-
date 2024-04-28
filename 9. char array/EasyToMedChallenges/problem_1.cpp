@@ -3,25 +3,25 @@ using namespace std;
 
 
 //Is Prefix ?
+bool is_prefix(string &s1, string &s2) {
+	for (int i = 0; i < s2.size(); ++i) {
+		if (s2[i] != s1[i])
+			return false;
+	}
+	return true;
+}
 
-int main()
-{
-    string str1, str2;
 
-    str1 = "ABCDEFG";
+int main() {
 
-    cin >> str2;
+	string s1, s2;
 
-    for(int i = 0; i < str2.size(); ++i)
-    {
-        if(str1[i] != str2[i])
-        {
-            cout << "NO";
-            return 0;
-        }
-    }
+	cin >> s1 >> s2;
 
-    cout << "YES";
+	if (is_prefix(s1, s2))
+		cout << "yes";
+	else
+		cout <<"no";
 
-    return 0;
+	return 0;
 }
