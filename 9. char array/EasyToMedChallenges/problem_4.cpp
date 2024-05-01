@@ -1,35 +1,34 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-//Sub sequence?
+bool is_subsequence(string &s1, string &s2) {
 
-int main()
-{
-    string str1, str2;
-    int counter = 0;
+	int s2_next = 0;
+	int count = 0;
 
-    cin >> str1 >> str2;
+	for (int i = 0; i < s1.size(); ++i) {
+		if (s1[i] == s2[s2_next]) {
+			count++;
+			s2_next++;
+		}
+	}
 
-    if(str2.size() > str1.size())
-    {
-        cout << "NO\n";
-        return 0;
-    }
+	if (count == s2.size())
+		return true;
+	return false;
+}
 
-    for(int i = 0; i < str1.size(); ++i)
-    {
-       if(str1[i] == str2[counter])
-       {
-            ++counter;
-            if(counter == str2.size())
-            {
-                cout << "YES\n";
-                return 0;
-            }
-       }
-    }
 
-   cout << "NO\n";
-    return 0;
+int main() {
 
+	string s1, s2;
+
+	cin >>s1 >>s2;
+
+	if (is_subsequence(s1, s2))
+		cout << "yes";
+	else
+		cout << "no";
+
+	return 0;
 }

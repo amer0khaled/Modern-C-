@@ -3,37 +3,37 @@
 using namespace std;
 
 //Add 5555
+string add9999(string &s) {
 
-int main()
-{
-    string str;
-    //at least 6 digits
-    cin >> str;
+	int carry = 0;
+	int digit = 0;
 
-    int carry = 0;
+	for (int i = s.size() - 1; i >= s.size() - 4; --i) {
 
-    for(int i = 0; i < str.size(); ++i)
-    {
-        int digit = (char)str[(str.size()) -1 -i] - '0';    //get digit
+		//get digit
+		digit = s[i] - '0' + carry;
 
-        if(i < 4)
-            digit += 5; //add 5 to each of the first 4 digits
-        digit += carry; //add carry if occured
+		if (digit + 5 > 9) {
+			s[i] = (digit + 5) - 10 + '0';
+			carry = 1;
+		}
+		else {
+			s[i] = digit + 5 + '0';
+			carry = 0;
+		}
+	}
 
-        if(digit >= 10)
-            carry = 1; //set carry to 1 if digit after adding 5 is greater than or equal 10
-        else
-            carry = 0;
-
-        str[(str.size()) -1 -i] =digit + '0';   //convert the digit to string
-        
-    }
-
-    if(carry == 1)
-        cout << 1;  //print 1 if the last digit is greater than or equal 10
-    
-   cout << str;
+	return s;
+}
 
 
-    return 0;
+int main() {
+
+	string s1, s2;
+
+	cin >>s1;
+
+	cout << add9999(s1);
+
+	return 0;
 }
