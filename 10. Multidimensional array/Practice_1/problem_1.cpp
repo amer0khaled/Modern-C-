@@ -1,12 +1,11 @@
 #include <iostream>
 using namespace std;
 
-#define INT_MIN		-2147483647 - 1
-
+//max value
 int main()
 {
 	int row, col;
-	int max = INT_MIN;
+	int max = INT32_MIN;
 	int max_row, max_col;
 
 	cin >> row >> col;
