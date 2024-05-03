@@ -1,6 +1,6 @@
-
 #include <iostream>
-#include <iomanip>
+#include <cmath>
+using namespace std;
 
 //flattening an array
 
@@ -13,8 +13,7 @@ int main()
    int arr[rows][cols];
 
    //read the array elements
-   for(int i = 0; i < rows; ++i)
-   {
+   for(int i = 0; i < rows; ++i) {
     for(int j = 0; j < cols; ++j)
         std:: cin >> arr[i][j];
    }
@@ -38,4 +37,5 @@ int main()
 
     return 0;
 }
+
 
