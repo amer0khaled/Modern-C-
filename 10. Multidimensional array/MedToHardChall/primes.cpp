@@ -2,6 +2,18 @@
 
 //How many primes in sub-square
 
+bool check_prime(int x) {
+    if (x <= 1)
+        return false;
+    else {
+        for (int i = 2; i < x / 2; ++i) {
+            if (x % i == 0)
+                return false;
+        }
+    }
+
+    return true;
+}
 
 int main()
 {
@@ -10,30 +22,19 @@ int main()
     std:: cin >> rows >> cols;
 
     int arr[rows][cols];
+    int helping_arr[rows][cols];
 
-    for(int i = 0; i < rows; ++i)
-    {
-        for(int j = 0; j < cols; ++j)
-        {
+    for(int i = 0; i < rows; ++i) {
+        for(int j = 0; j < cols; ++j) {
+
             std:: cin >> arr[i][j];
 
+            bool is_prime = check_prime(arr[i][j]);
 
-            //replace not primes with 0
-            
-            if(arr[i][j] <= 1) //not prime
-            {
-                arr[i][j] = 0; // replace the value with 0
-                continue;
-            }
-
-            for(int k = 2; k < arr[i][j]/2; ++k)
-            {
-                if(arr[i][j] % k == 0) //not prime
-                {
-                    arr[i][j] = 0; // replace the value with 0
-                    break;
-                }
-            }
+            if (is_prime)
+                helping_arr[i][j] = 1;
+            else
+                helping_arr[i][j] = 0;
         }
     }
 
@@ -46,11 +47,9 @@ int main()
     {
         std:: cin >> row1 >> col1 >> UserRows >> UserCols;
 
-        for(int i = 0; i < UserRows; ++i)
-        {
-            for(int j = 0; j < UserCols; ++j)
-            {
-                if(arr[i][j] != 0)
+        for(int i = 0; i < UserRows; ++i) {
+            for(int j = 0; j < UserCols; ++j) {
+                if(helping_arr[i][j] == 1)
                     counter++;
             }
         }
