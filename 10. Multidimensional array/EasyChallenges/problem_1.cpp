@@ -2,47 +2,33 @@
 using namespace std;
 
 //Smaller row
+int main() {
+    int n, m;
+    cin >> n >> m;
 
-int main()
-{
-    int row, col;
-    int n, m, flag;
-    int Q;
+    int arr[n][m];
 
-    cin >> row >> col;
-
-    int arr[row][col];
-
-    for(int i = 0; i < row; ++i)
-    {
-        for(int j = 0; j < col; ++j)
-        {
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j)
             cin >> arr[i][j];
-        }
     }
 
-    cin >> Q;
+    int q, x, y, flag = 0;
+    cin >> q;
 
-    for(int w = 0; w < Q; ++w)
-    {
-        
-        cin >> n >> m;
-
+    for (int i = 0; i < q; ++i) {
+        cin >> x >> y;
         flag = 0;
-        for(int i = 0; i < col; ++i)
-        {
-            if(arr[n-1][i] >= arr[m-1][i])
-            {
+        for (int j = 0; j < m; ++j) {
+            if (arr[x - 1][j] >= arr[y - 1][j]) {
                 flag = 1;
                 break;
             }
         }
-
-        if(flag == 0)
-            cout << "YES\n";
+        if (!flag)
+            cout << "yes\n";
         else
-            cout << "NO\n";
+            cout << "no\n";
     }
 
-    return 0;
 }
