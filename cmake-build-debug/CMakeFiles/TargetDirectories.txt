@@ -1,0 +1,3 @@
+/media/amer/Amer Khaled/amer khaled/My Repos/Modern-CPP/cmake-build-debug/CMakeFiles/Modern_CPP.dir
+/media/amer/Amer Khaled/amer khaled/My Repos/Modern-CPP/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/amer/Amer Khaled/amer khaled/My Repos/Modern-CPP/cmake-build-debug/CMakeFiles/rebuild_cache.dir
